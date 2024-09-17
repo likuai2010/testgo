@@ -1,0 +1,69 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:/Users/Administrator/.ohos/config/default_testgo_MUKnCvBXeO6-0j-YkHHRV8f4jZyUEdC_I9imQ5BbXcU=.cer",
+          "storePassword": "0000001B9C39FFE18F6D6420BFFCCD69C008CF391EB19E5777C64D1CCF1E62214FF16913FBA43883DE6E4F",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BAFDACCA7DBE5E59B513CDC582045D0403460E696326959071A5A2A0BD9C47C518C4DABEE81D30A",
+          "profile": "G:/huawei/store/testRelease.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:/Users/Administrator/.ohos/config/default_testgo_MUKnCvBXeO6-0j-YkHHRV8f4jZyUEdC_I9imQ5BbXcU=.p12"
+        }
+      },
+      {
+        "name": "prod",
+        "type": "HarmonyOS",
+        "material": {
+          "storePassword": "00000018F2888E836E9F2450DA71A4CE796E1FA0C91C14F48EFB77DAF787493213597F982816FD8F",
+          "certpath": "G:/huawei/store/moonlight-prod.cer",
+          "keyAlias": "Moonlight",
+          "keyPassword": "00000018ABC4F39CF79E439121EE9976CC05123FF3E709BF47ADCA5C22FD8E9F2AEAA3F9C048BCA7",
+          "profile": "G:/huawei/store/testRelease.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "G:/huawei/store/keystore.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+      },
+      {
+        "name": "prod",
+        "signingConfig": "prod",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default",
+            "prod"
+          ]
+        }
+      ]
+    }
+  ]
+}
