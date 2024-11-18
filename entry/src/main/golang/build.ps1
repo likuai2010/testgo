@@ -1,10 +1,10 @@
-$arch="amd64"
+$arch="arm64"
 # amd64  arm64
-$target="x86_64"
+$target="aarch64"
 # x86_64 aarch64
-$outdir="x86_64"
+$outdir="arm64-v8a"
 # x86_64 arm64-v8a
-$OHOS_NATIVE_HOME="G:/huawei/DevEcoStudio/sdk/HarmonyOS-NEXT-DB3/openharmony/native"
+$OHOS_NATIVE_HOME="G:/huawei/DevEcoStudio/sdk/default/openharmony/native"
 $BASE_FLAGS="-Wno-error --sysroot=$OHOS_NATIVE_HOME/sysroot -fdata-sections -D__MUSL__ -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -fPIC"
 $TOOLCHAIN="$OHOS_NATIVE_HOME/llvm"
 
@@ -15,7 +15,7 @@ $env:CGO_AR= "$TOOLCHAIN/bin/llvm-ar"
 $CGO_AR= "$TOOLCHAIN/bin/llvm-ar"
 $env:GOASM= "$TOOLCHAIN/bin/llvm-as"
 
-$env:GOOS = "android"
+$env:GOOS = "linux"
 $env:GOARCH = $arch # amd64 386 arm arm64
 $env:GOARM = "";
 $env:CGO_ENABLED = "1"
@@ -27,7 +27,7 @@ $sourceFile = "./native"
 $outputFile = "gotest.so"
 # 压缩so
 # -trimpath -ldflags="-s -w"
-go build -buildmode c-shared -tags "foss cmfa with_gvisor ohos"  -v -o $outputFile $sourceFile
+G:\git\golang_go\bin\go build -tlsmodegd -buildmode c-shared   -v -o $outputFile $sourceFile
 
 # 检查编译结果
 if (Test-Path $outputFile) {

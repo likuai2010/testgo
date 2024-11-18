@@ -2,17 +2,21 @@ package main
 
 /*
 #cgo LDFLAGS: -lhilog_ndk.z
+
+#include <stdlib.h>
+
 */
 import "C"
+import (
+)
 
+//export unpackTool
+func unpackTool() bool {
 
-//export coreTest
-func coreTest() C.int {
-	return 1
+	return true
 }
 
-
-
+// 主函数
 func main() {
-	panic("Stub!")
+
 }
